@@ -12,17 +12,15 @@ def remove_from_list(li,index):
     return(li[:index] + li[index+1 :])
 
 
-### Part 1 --------------------------------------------------------
 
-# read file
-table_reports = file_read_lines("input day2.txt")
 
-# remove newlines, then split by spaces
-for i_row in range(0,len(table_reports)):
-    # remove newlines
-    table_reports[i_row] =  table_reports[i_row].replace("\n","").split(" ")
-    # make all integers
-    table_reports[i_row] = [int(item) for item in table_reports[i_row]]
+
+
+
+
+
+
+### Part 1 Functions -----------------------------------------
 
 # returns the "deltas" from a list
 # that is, the differences between each elemnt of list
@@ -33,11 +31,6 @@ def get_list_deltas(li):
         delta = li[i+1] - li[i]
         li_new[i] = delta
     return(li_new)
-
-# copy ot table_reports, but with deltas
-table_deltas = prep_list(len(table_reports))
-for i_row in range(0,len(table_reports)-1):
-    table_deltas[i_row] = get_list_deltas(table_reports[i_row])
 
 # checks if a list of deltas are safe 
 # no deltas higher than 3, or 0
@@ -59,6 +52,25 @@ def is_rate_unidirectional(li_delta):
     else:
         return(True)
 
+
+
+# Executing part 1 -----------------------------------
+
+# read file
+table_reports = file_read_lines("input day 2.txt")
+
+# remove newlines, then split by spaces
+for i_row in range(0,len(table_reports)):
+    # remove newlines
+    table_reports[i_row] =  table_reports[i_row].replace("\n","").split(" ")
+    # make all integers
+    table_reports[i_row] = [int(item) for item in table_reports[i_row]]
+
+# copy ot table_reports, but with deltas
+table_deltas = prep_list(len(table_reports))
+for i_row in range(0,len(table_reports)-1):
+    table_deltas[i_row] = get_list_deltas(table_reports[i_row])
+
 # check both
 def is_report_safe(li_delta):
     if is_rate_safe(li_delta) and is_rate_unidirectional(li_delta):
@@ -74,12 +86,21 @@ for li_delta in table_deltas:
 
 print(count)
 
-### Part 2 ----------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+### Part 2  functions --------------------------------------
 
 def is_raw_report_safe(report):
     li_delta = get_list_deltas(report)
     return(is_report_safe(li_delta))
-
 
 def is_dampened_report_safe(report):
     if is_raw_report_safe(report):
@@ -90,6 +111,9 @@ def is_dampened_report_safe(report):
             return(True)
     return(False)
 
+
+
+# Executing part 2 -----------------------------------------
 
 count_damp = 0
 for report in table_reports:

@@ -1,3 +1,5 @@
+## Generalf functions -------------------
+
 import math
 import time
 import re
@@ -43,6 +45,16 @@ def get_pos_of(what,table):
             next
     return -1
         
+
+
+
+
+
+
+
+
+# Part 1 functions ------------------------------------
+
 def guard():
     global direction_guard
     global guardpos
@@ -76,6 +88,8 @@ def save_map_gen(t,filename):
             f.write(f"{line}\n")
 
 
+### Executing part 1 ------------------------------
+
 map_base = open("Input day 6.txt","r").read().splitlines()
 map_base = [ list(i) for i in map_base]
 guardpos = get_pos_of("^",map_base)
@@ -88,7 +102,17 @@ for i in range(0,10000000000):
 n_x = count_in_table("X",[ "".join(i) for i in map_base])
 print(n_x)
 
-### 2
+
+
+
+
+
+
+
+
+
+
+### Part 2 functions 
 
 def out_of_bounds(p,table):
     if p[0] < 0 or p[1] < 0:
@@ -97,7 +121,6 @@ def out_of_bounds(p,table):
         return(True)
     else:
         return(False)
-
 
 j=1
 def save_map_drone():
@@ -137,9 +160,6 @@ def launch_drone(pos,direction):
 
     if drone_status == 2:
         map_obstacles[nexpos[0]][nexpos[1]] = "$"
-
-
-
 
 def drone():
     global direction_drone
@@ -212,6 +232,8 @@ def guard_drone():
         map_base[guardpos[0]][guardpos[1]] = "^"
 
 
+
+# Executing part 2 ---------------------------------
 
 map_base = open("Input day 6.txt","r").read().splitlines()
 map_base = [ list(i) for i in map_base]

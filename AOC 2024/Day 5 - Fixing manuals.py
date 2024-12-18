@@ -1,16 +1,9 @@
-### read files 
+### Part 1 functions ---------------------
+
+import math
 
 def read_file_splitlines(filename):
     return(open(filename,"r").read().splitlines())
-
-
-rules = read_file_splitlines("Input day 5 - 1.txt")
-rules = [row.split("|") for row in rules]
-
-
-manuals = read_file_splitlines("Input day 5 - 2.txt")
-manuals = [manual.split(",") for manual in manuals]
-
 
 def is_rule_broken(manual,rule):
     try:
@@ -24,13 +17,24 @@ def is_rule_broken(manual,rule):
     else:
         return(False)
 
-
 def is_manual_valid(manual,rules):
     for rule in rules:
         if is_rule_broken(manual,rule):
             return(False)
     return(True)
 
+def get_center_number(l):
+    return(l[math.floor(len(l)/2)])
+
+
+
+## Executing part 1 ------------------------------
+
+rules = read_file_splitlines("Input day 5 - 1.txt")
+rules = [row.split("|") for row in rules]
+
+manuals = read_file_splitlines("Input day 5 - 2.txt")
+manuals = [manual.split(",") for manual in manuals]
 
 valid_manuals = []
 invalid_manuals = []
@@ -40,17 +44,22 @@ for manual in manuals:
     else:
         invalid_manuals.append(manual)
 
-import math
-
-def get_center_number(l):
-    return(l[math.floor(len(l)/2)])
-
 n=0
 for manual in valid_manuals:
     n = n + int(get_center_number(manual))
 print(n)
 
-### 2
+
+
+
+
+
+
+
+
+
+
+### part 2 functions --------------------------
 def fix_broken_rule(manual,rule):
     pos_first = manual.index(rule[0])
     pos_second = manual.index(rule[1])
@@ -84,6 +93,10 @@ def check_and_fix_manual_complete(manual,rules):
         print("CANT BE FIXED")
         return -1
 
+
+
+# Execute part 2 ----------------------------
+
 fixed_manuals = []
 for manual in invalid_manuals:
     manual_fixed = check_and_fix_manual_complete(manual,rules)
@@ -92,6 +105,7 @@ for manual in invalid_manuals:
 n=0
 for manual in fixed_manuals:
     n = n + int(get_center_number(manual))
+
 print(n)
 
 

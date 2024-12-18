@@ -1,4 +1,4 @@
-### Basic functions
+### Basic functions ------------------------------
 
 import math
 import copy
@@ -42,7 +42,7 @@ def get_pos_of_all(what,table):
     return(list_pos)
 
 
-### Part 1
+### Part 1 functions -----------------------------------
 
 def robot(pos, pos_trailhead=[]):
     global map_base
@@ -92,6 +92,9 @@ def robot(pos, pos_trailhead=[]):
                 robot(pos_next,pos_trailhead)
 
 
+
+# Executing part 1 ------------------------------------------
+
 input_day10 = open("input day 10.txt","r").read().splitlines()
 map_base = [ list(i) for i in input_day10]
 width_map = len(map_base)
@@ -102,11 +105,17 @@ map_robot = copy.deepcopy(map_base)
 for pos in get_pos_of_all("0",map_base):
     robot(pos)
 
+print(
+    sum([i for i in [item for sublist in map_peaks for item in sublist] if i != "."])
+)
 
-sum([i for i in [item for sublist in map_peaks for item in sublist] if i != "."])
 
 
-### 2
+
+
+
+
+### Part 2 functions ------------------------------------
 
 ## This variant does not have shared global memory of the robot map
 ## but instead inherits it
@@ -160,6 +169,9 @@ def robot2(pos, map_robot=[], pos_trailhead=[]):
                 robot2(pos_next,copy.deepcopy(map_robot),pos_trailhead)
 
 
+
+# Executing part 2 ------------------------------------
+
 input_day10 = open("input day 10.txt","r").read().splitlines()
 map_base = [ list(i) for i in input_day10]
 width_map = len(map_base)
@@ -173,8 +185,9 @@ for pos in get_pos_of_all("0",map_base):
 save_map_gen(map_peaks, "map_peaks.txt")
 
 
-sum([i for i in [item for sublist in map_peaks for item in sublist] if i != "."])
-
+print(
+    sum([i for i in [item for sublist in map_peaks for item in sublist] if i != "."])
+)
 
 
 #Considering its trailheads in reading order, 

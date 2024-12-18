@@ -1,5 +1,5 @@
 
-### Basic functions
+### Basic functions ---------------------------------------------
 
 import math
 import time
@@ -45,7 +45,17 @@ def save_map_warehouse():
         for line in m:
             f.write(f"{line}\n")
 
-### Task specific function
+
+
+
+
+
+
+
+
+
+
+### Part 1 Task specific functions ------------------------------
 
 def mover(pos, direction):
     # attempts to move an object according to an instruction (^<>v)
@@ -81,9 +91,7 @@ def mover(pos, direction):
 
 
 
-
-
-### Task 1 ###########################################
+### Executing  Part 1 ----------------------------------------------
 
 input_day_15 = open("Input day 15.txt", "r").read().splitlines()
 map_warehouse = [list(i) for i in input_day_15[:input_day_15.index("")] ]
@@ -107,7 +115,12 @@ print(sum_gps)
 
 
 
-### Task 2 ###########################################
+
+
+
+
+
+### Part 2 funtions -----------------------------------------
 
 def mover(pos, direction, test=False, neighbor=False):
     # attempts to move an object according to an instruction (^<>v)
@@ -167,7 +180,7 @@ def mover(pos, direction, test=False, neighbor=False):
 
 
 
-
+# Executing part 2 --------------------------------------------
 
 input_day_15 = open("Input day 15.txt", "r").read().splitlines()
 map_warehouse = [list(i) for i in input_day_15[:input_day_15.index("")]]
@@ -178,10 +191,11 @@ str_commands = "".join(input_day_15[input_day_15.index("")+1:])
 for command in str_commands[1:1000]:
     pos_robot = get_pos_of("@",map_warehouse)
     mover(pos_robot, command)
-    save_map_warehouse()
-    time.sleep(0.2)
+    #save_map_warehouse()
+    #time.sleep(0.2)
 
 sum_gps = 0
+n=0
 for y in range(0,len(map_warehouse)):
     for x in range(0, len(map_warehouse[0])):
         sym = map_warehouse[y][x]

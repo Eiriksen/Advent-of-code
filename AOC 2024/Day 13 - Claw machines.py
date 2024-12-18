@@ -1,3 +1,5 @@
+### Part 1 functions --------------------------------
+
 import re
 import math
 
@@ -33,7 +35,6 @@ def smallest_price(X,Y,dx1,dx2,dy1,dy2):
   else: 
     return(False)
 
-
 def read_machines(file):
   dx1 = re.findall("A: X\+(.*),", file)
   dx2 = re.findall("B: X\+(.*),", file)
@@ -55,11 +56,24 @@ def cost_machine(machines,i_machine):
   Y = machines[i_machine][5]
   return(smallest_price(X,Y,dx1,dx2,dy1,dy2))
 
+### Executing part 1 -------------------------------
+
 input_day13 = open("Input day 13.txt","r").read()
 machines = read_machines(input_day13)
-sum([cost_machine(machines,i) for i in range(0,len(machines))])
 
-### Part 2
+print(
+  sum([cost_machine(machines,i) for i in range(0,len(machines))])
+)
+
+
+
+
+
+
+
+
+
+### Part 2 Functions ---------------------------------
 
 def smallest_price(X,Y,dx1,dx2,dy1,dy2):
   X = X + 10000000000000
@@ -88,7 +102,6 @@ def smallest_price(X,Y,dx1,dx2,dy1,dy2):
   # To ensure the rounding does not give us a faulty n1
   # - we also test n1+1 and n1-1
 
-
   for i in [n1-1,n1,n1+1]:
     # number of times to press button 2
     n2 = (n1*dx1-X)/-dx2
@@ -97,6 +110,13 @@ def smallest_price(X,Y,dx1,dx2,dy1,dy2):
 
   return(False)
 
+
+
+### Executing part 2 -------------------------------------------
+
 input_day13 = open("Input day 13.txt","r").read()
 machines = read_machines(input_day13)
-sum([cost_machine(machines,i) for i in range(0,len(machines))])
+
+print(
+  sum([cost_machine(machines,i) for i in range(0,len(machines))])
+)

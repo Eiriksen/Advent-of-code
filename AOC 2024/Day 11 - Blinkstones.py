@@ -1,3 +1,4 @@
+### Part 1 functions ------------------------------------------
 
 def blink_stone(stone):
   if stone == 0:
@@ -31,7 +32,10 @@ def blink(stones):
     blinkstones+=blink_stone(stone)
   return(blinkstones)
 
-### PART 1
+
+
+
+### Executing PART 1
 
 input_day_11 = open("Input day 11.txt", "r").readlines()[0].split()
 stones = [int(i) for i in input_day_11]
@@ -40,6 +44,16 @@ for i in range(25):
   stones = blink(stones)
 
 len(stones)
+
+
+
+
+
+
+
+
+
+
 
 ### PART 2
 
@@ -91,6 +105,9 @@ def compress_stones():
     stones_n.append(n)
 
 
+
+# Executing part 2 -------------------------------------
+
 input_day_11 = open("Input day 11.txt", "r").readlines()[0].split()
 stones = [int(i) for i in input_day_11]
 stones_n = [1 for i in stones]
@@ -102,7 +119,16 @@ for i in range(0,75):
 
 sum(stones_n)
 
-### Task 2 but even faster
+
+
+
+
+
+
+
+
+
+### Functions: part 2 but even faster ---------------------------
 
 def blink3():
   global stones
@@ -139,6 +165,9 @@ def blink3():
   stones = new_stones
   stones_n = new_stones_n
 
+
+
+# Executing part 2 but even faster ------------------------------
 
 input_day_11 = open("Input day 11.txt", "r").readlines()[0].split()
 stones = [int(i) for i in input_day_11]

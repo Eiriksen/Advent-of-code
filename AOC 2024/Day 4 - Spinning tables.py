@@ -27,7 +27,17 @@ def file_save_lines(x,filename):
             f.write(f"{line}\n")
 
 
-### Task-specific functions for part 1
+
+
+
+
+
+
+
+
+
+
+### Part 1 functions -----------------------------------------
  
 def rotate_table_45(table):
     # assumes all rows have same n of rows
@@ -79,9 +89,10 @@ def count_in_table(regexp,tab):
     for row in tab:
         n = n + len(re.findall(regexp,row))
     return(n)
-    
 
-### 1
+
+
+# Executing part 1 -----------------------------------
 
 # read file and remove newlines
 table = open("input day 4.txt","r").read().splitlines()
@@ -107,7 +118,17 @@ n_vertical = count_bothways_in_table("XMAS",table_vertical)
 print(n_normal+n_diagonal1+n_vertical+n_diagonal2)
 
 
-### 2
+
+
+
+
+
+
+
+
+
+
+### Part 2 functions --------------------------------
 
 def read_diagonal(table,row):
     output = []
@@ -195,6 +216,8 @@ def rotate_table_minus45(table):
 
 
 
+### Part 2 functions test --------------------------
+
 # does minus 45 work?
 rotate_table_minus45(table) 
 # YES
@@ -215,7 +238,9 @@ rotate_table_45(rotate_table_45(table))
 join_rows(rotate_table_90(table))
 # HOLY SHIT YES
 
-### PART 2 FOR REAL
+
+
+### PART 2 FOR REAL ---------------------------------------
 
 # rotate table diagonally
 # upgrade any A within a SAM / MAS to Ø
@@ -238,4 +263,6 @@ for row in table_Ø_diagonal2:
     table_Æ.append(j)
 
 # Count Æ's
-count_in_table("Æ",table_Æ)
+print(
+    count_in_table("Æ",table_Æ)
+)

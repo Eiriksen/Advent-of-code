@@ -1,6 +1,6 @@
+
 ### general functions
 import numpy
-
 
 def leading_zeroes(number,zeroes):
     # adds leading zeroes
@@ -21,10 +21,15 @@ def concat(a, b):
     return int(f"{a}{b}")
 
 
-input_day_7 = open("Input day 7.txt","r").read().splitlines()
-list_results = [ int(i.split(": ")[0]) for i in input_day_7]
-table_numbers = [ i.split(": ")[1:][0].split(" ") for i in input_day_7]
-table_numbers = [ [ int(a) for a in i ] for i in table_numbers  ]
+
+
+
+
+
+
+
+
+# Part 1 functions --------------------------------
 
 def execute_operators(list_numbers,operators,result):
     output = list_numbers[0]
@@ -53,7 +58,15 @@ def check_for_solvable_combination(result,list_numbers,oprtrs=2):
             return(result)
     return(0)
 
-# PART 1: + and * 
+
+
+# Exeuting PART 1: + and * 
+
+input_day_7 = open("Input day 7.txt","r").read().splitlines()
+list_results = [ int(i.split(": ")[0]) for i in input_day_7]
+table_numbers = [ i.split(": ")[1:][0].split(" ") for i in input_day_7]
+table_numbers = [ [ int(a) for a in i ] for i in table_numbers  ]
+
 
 out = []
 for i in range(0, len(list_results)):
@@ -63,6 +76,16 @@ for i in range(0, len(list_results)):
 
 print(out)
 print(sum(out))
+
+
+
+
+
+
+
+
+
+
 
 # PART 2: + and * and ||
 

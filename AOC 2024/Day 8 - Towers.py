@@ -1,9 +1,9 @@
 
+### generic functions
+
 import math
 import re
 import time
-
-### generic functions
 
 def count_in_table(regexp,tab):
     n = 0
@@ -55,7 +55,17 @@ def paint_locations(locations,table,symbol):
             table[pos[0]][pos[1]] = symbol
     return(table)
 
-### task specific functions
+
+
+
+
+
+
+
+
+
+
+### Part 1 task specific functions ----------------------
 
 # function that finds antilocations between two locations
 def get_antilocations(pos1,pos2):
@@ -89,10 +99,12 @@ def handle_location(pos):
     map_anti = paint_locations(list_antilocations,map_anti,"#")
     map_towers[pos[0]][pos[1]] = "+"
 
-    time.sleep(0.1)
-    save_map_gen(map_towers,"map_towers.txt")
+    #time.sleep(0.1)
+    #save_map_gen(map_towers,"map_towers.txt")
 
-# 1:
+
+
+# Executing part 1 ------------------------------
 
 input_day_8 = open("Input day 8.txt","r").read().splitlines()
 map_towers = [ list(i) for i in input_day_8]
@@ -107,7 +119,17 @@ save_map_gen(map_anti,"map_anti.txt")
 
 print(count_in_table("#",table_join_rows(map_anti)))
 
-# 2
+
+
+
+
+
+
+
+
+
+
+# Functions part 2 ---------------------------------
 
 def get_antilocations(pos1,pos2,m=map_towers):
     distance = [pos2[0]-pos1[0],pos2[1]-pos1[1]]
@@ -137,6 +159,9 @@ def get_antilocations(pos1,pos2,m=map_towers):
     return(antilocations)
 
 
+
+# Executing part 2 ------------------------------------------
+
 input_day_8 = open("Input day 8.txt","r").read().splitlines()
 map_towers = [ list(i) for i in input_day_8]
 map_anti = [ list(i) for i in input_day_8]
@@ -144,7 +169,6 @@ map_anti = [ list(i) for i in input_day_8]
 for i_row in range(0, len(map_towers)):
     for i_column in range(0,len(map_towers[i_row])):
         handle_location([i_row,i_column])
-
 
 
 save_map_gen(map_towers,"map_towers.txt")

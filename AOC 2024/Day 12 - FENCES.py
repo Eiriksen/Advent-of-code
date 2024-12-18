@@ -1,9 +1,9 @@
 
+### general functions ---------------------------
+
 import copy
 import math
 import time
-### general functions
-
 
 def out_of_bounds(p,table):
     if p[0] < 0 or p[1] < 0:
@@ -65,7 +65,17 @@ def correct_direction(direction):
         direction +=360
     return(direction)
 
-### Part 1
+
+
+
+
+
+
+
+
+
+
+### Part 1 functions  -------------------------------------------
 
 
 def robot(pos, index_memory=0, init=True):
@@ -100,7 +110,10 @@ def robot(pos, index_memory=0, init=True):
           # increase fence count
           memory_robot[index_memory][1] +=1
         # else do nothing
-    
+
+
+
+# Executing part 1 ----------------------------------
 
 
 input_day_12 = open("input day 12.txt","r").read().splitlines()
@@ -120,7 +133,17 @@ for i in memory_robot:
 print(n)
 
 
-### Part 2
+
+
+
+
+
+
+
+
+
+
+### Part 2 functions ---------------------------------
 
 def robot2(pos, index_memory=0, init=True):
     global map_base
@@ -237,12 +260,14 @@ def count_sides():
             i_y+=1
 
 
+
+###  Executing part 2 --------------------------------
+
 input_day_12 = open("input day 12.txt","r").read().splitlines()
 map_base = pad_map([ [a for a in i] for i in input_day_12])
 map_covered = copy.deepcopy(map_base)
 map_fence = copy.deepcopy(map_base)
 memory_robot = []
-
 
 for i_x in range(0,len(map_covered)):
     for i_y in range(0,len(map_covered[i_x])):

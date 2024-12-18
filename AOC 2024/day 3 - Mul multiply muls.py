@@ -1,4 +1,4 @@
-### General functions
+### General functions 
 
 def file_read_lines(filename):
     with open(filename) as fil:
@@ -18,7 +18,17 @@ def str_numbers_extract(string):
     res=list(map(int, res))
     return(res)
 
-### Part 1 -----------------------------------------
+
+
+
+
+
+
+
+
+
+
+### Executing Part 1 ------------------------------------
 
 file = file_read_lines("input day 3.txt")
 
@@ -37,6 +47,14 @@ for mul in list_muls:
 print(sum_muls)
 
 
+
+
+
+
+
+
+
+
 ### Part 2 ------------------------------------------
 
 list_megamuls = re.findall("mul\([0-9]*,[0-9]*\)|do\(\)|don't\(\)",file_singleline)
@@ -52,4 +70,5 @@ for i in range(0,len(list_megamuls)):
     else:
         if cur_state == 1:
             sum = sum_megamuls = sum_megamuls + mul_multiply(operation)
+
 print(sum_megamuls)

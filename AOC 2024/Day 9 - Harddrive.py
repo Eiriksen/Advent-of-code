@@ -1,6 +1,8 @@
-import re
 
-# functions
+
+# Part 1 functions -------------------------------
+
+import re
 
 def replace_at_index(string,index,new):
     return(string[:index] + [new] + string[index+1:])
@@ -56,6 +58,7 @@ def calc_checksum(string):
     return(res)
 
 
+
 # task 1
 
 string_compressed = list(open("Input day 9.txt","r").read())
@@ -63,6 +66,14 @@ string_decompressed = decompress(string_compressed)
 string_compacted =  compact_string(string_decompressed)
 checksum = calc_checksum(string_compacted)
 print(checksum)
+
+
+
+
+
+
+
+
 
 
 
@@ -104,6 +115,8 @@ def compact_list2(lis,ID):
     return(lis_new)
 
 
+
+### Executing part 2 ----------------------------
 
 lis = string_decompressed
 ID = int(lis[-1])

@@ -1,8 +1,10 @@
+
+### Part 1 Task specific functions -----------------------------
+
 import re
 import math
 import time
 import copy
-### Task specific functions
 
 def rotate_table(table,times=1):
     for i in range(0,times):
@@ -98,6 +100,7 @@ def count_quadrants():
 
 
 
+### Executing part 1 ----------------------------------------
 
 input_day14 = open("Input day 14.txt","r").read()
 robots = read_robots(input_day14)
@@ -106,13 +109,23 @@ map_height = 103
 
 for i in range(0,100):
     move_robots()
-math.prod(count_quadrants())
+
+print(
+    math.prod(count_quadrants())
+)
 
 
 
-### 2
 
 
+
+
+
+
+
+
+
+### Part 2 functions ------------------------------------
 
 #### Need an area counter
 def get_relPos(pos,direction,speed):
@@ -195,12 +208,14 @@ def draw_robots(suf=""):
         out = mirror_table(rotate_table(botmap,1))
         out = [list(map(str,i)) for i in out] 
         out = ["".join(i) for i in out]
-        with open("robomaps/"+str(area)+"_map_bots"+str(suf)+".txt", 'w') as f:
+        with open("maps/"+str(area)+"_map_bots"+str(suf)+".txt", 'w') as f:
             for line in out:
                 f.write(f"{line}\n")
         time.sleep(0.1)
 
 
+
+# Executing part 2 -------------------------------------
 
 input_day14 = open("Input day 14.txt","r").read()
 robots = read_robots(input_day14)
@@ -214,4 +229,4 @@ for i in range(1,10000):
     move_robots()
     draw_robots(i)
 
-
+# SEE FOLDER "MAPS"
