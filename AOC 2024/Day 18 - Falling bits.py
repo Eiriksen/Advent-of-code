@@ -183,15 +183,15 @@ while upper > lower+1:
 
 
 
-def Point():
-    def __init__(self, xx, yy):
-        self.x = xx
-        self.y = yy
-    def __add__(self, other):
-        n = Point(self.x + other.x, self.y + other.y)
-        return n
+# def Point():
+#     def __init__(self, xx, yy):
+#         self.x = xx
+#         self.y = yy
+#     def __add__(self, other):
+#         n = Point(self.x + other.x, self.y + other.y)
+#         return n
 
-a = Point(1, 1)
-b = Point(2, 2)
-c = a + b
-print(c.x, c.y)
+# a = Point(1, 1)
+# b = Point(2, 2)
+# c = a + b
+# print(c.x, c.y)
