@@ -123,11 +123,7 @@ def pad_map(table):
         table[i].insert(len(table[i]),"Ø")
     return(table)
 
-def get_symbol(pos,table):
-  if out_of_bounds(pos, table):
-    return(None)
-  else:
-    return(table[pos[0]][pos[1]])
+
 
 # function that finds all indexes of vlaue in list
 def get_index_of_all(l,value):
