@@ -1,7 +1,8 @@
 # Day 3, turning on batteries, or finding the largest n-digit number you can make from a string of numbers, picking the numbers in the order they appear
 
 
-### Task 1: finding the largest 2-digit numbers and summing them ----------------
+
+### Task 1: finding the largest 2-digit numbers and summing them ------------------------
 
 def locate_in_list(li,symbol):
    return([i for i, x in enumerate(li) if x == symbol])
@@ -21,7 +22,10 @@ input = open("AOC 2025/input day 3.txt","r").read().splitlines()
 sum([get_2batteries(i) for i in input])
 
 
-### Task 2: finding the largest 12-digit numbers and summing them ----------------
+
+
+
+### Task 2: finding the largest 12-digit numbers and summing them -----------------------
 
 def collapse_to_int(li):
   # collapses a list of digis to a single integer

@@ -3,7 +3,9 @@
 # task1 : a number is fake if it is entirely made up of two repeating numbers eg "22" or "2323" or "123123"
 # task2: a number is fake it is is entirely made up of *some sequence* of repeating numbers e.g "22" "232323" "123123123123"
 
-# load input
+
+
+### 1 load input and get number of fake numbers -----------------------------------------
 input_day2 = open("AOC 2025/input day 2.txt").read().split(",")
 # epand the list of numbers:
 input_split = [str.split("-") for str in input_day2]
@@ -14,8 +16,6 @@ def flatten(lili):
 
 input_all = flatten(input_expanded)
 
-
-# Part 1:
 def is_repeated(item):
   item = str(item)
   # if the length is odd, the item can't be a repeat
@@ -43,7 +43,10 @@ input_onlyfake = [(item if is_fake(item) else 0) for item in input_all]
 print(sum(input_onlyfake))
 
 
-# part 2
+
+
+
+### part 2 different definition of fake numbers -----------------------------------------
 
 #find all the ways you can evenly split a sequence
 def get_possible_splits(item):
@@ -86,3 +89,4 @@ def is_fake2(item):
 # RESULT: sum of all fake items
 input_onlyfake2 = [(item if is_fake2(item) else 0) for item in input_all]
 print(sum(input_onlyfake2))
+

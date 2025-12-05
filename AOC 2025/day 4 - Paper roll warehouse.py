@@ -1,15 +1,13 @@
-import time
-import copy
-
 # Day 4: We have a table map of a warehouse
 # the warehouse countains rolls of paper "@"
 # a roll of paper can be moved out if no more than three rolls of paper surrounds it
 # Task 1: Count number of rolls which can be moved out
 # Task 2: Count total number of rolls which can be moved out 
 
+import time
+import copy
 
-
-### 1: Loap map and generic map functions: --------------------------------------
+### 1: Loap map and generic map functions: ----------------------------------------------
 
 input = open("AOC 2025/input day 4.txt","r").read().splitlines()
 map_base = [ [a for a in i] for i in input]
@@ -49,7 +47,8 @@ def table_get_all_pos(table):
 
 
 
-### 2: Task 1 ----------------------------------------------------------
+
+### 2: Task 1 ---------------------------------------------------------------------------
 # count number of rolls accessible by forklift
 # i.e. count number of @ with no more than 3 @ around them
 
@@ -62,11 +61,14 @@ for p in table_get_all_pos(map_base):
   if count_x_aroundpos(p,map_base,"@") < 4:
     n_liftable = n_liftable + 1
 
+### RESULT
 print(n_liftable)
 
 
 
-### 3: Task 2 -------------------------------------------------------------
+
+
+### 3: Task 2 ---------------------------------------------------------------------------
 # count TOTAL number of rolls removable by forklift
 
 def paint_locations(locations,table,symbol):
@@ -109,4 +111,5 @@ while(len(list_pos_liftable) != 0):
     print("broke")
     break
 
+### RESULT
 print(n_lifted)

@@ -1,10 +1,11 @@
 # https://adventofcode.com/2025/day/1
-
 # Input: a list of commands for a dial, e.g. "R90" means click 90 times right
 # Environment: a dial which goes from 0 to 99, and which does not stop at the 0 location
 # Task 1: How many times does the dial touch "0" after a command, for the the given input?
 
-# read input
+
+
+### 1: read input and count number of zeroes --------------------------------------------
 input_day1 = open("AOC 2025/input day 1.txt","r").read().splitlines()
 
 # establis a list of all the positions the dial has had
@@ -39,7 +40,7 @@ print(list_positions.count(0))
 
 
 
-# Task 2: How many times does the dial touch 0 altogether?
+#### 2: How many times does the dial touch 0 altogether? --------------------------------
 # establis a list of all the positions the dial has had
 
 list_positions = [50]
